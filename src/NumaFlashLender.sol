@@ -11,8 +11,6 @@ import "./interfaces/IERC3156FlashLender.sol";
 
 
 
-// - whitelist borrowers
-
 /**
  * @author tibthecat
  * @dev numa flash lending.
@@ -31,13 +29,13 @@ contract NumaFlashLender is IERC3156FlashLender, Ownable, Pausable  {
     }
 
     /**
-     * @param supportedTokens_ Token contracts supported for flash lending.
+     * @param supportedToken_ Token contract supported for flash lending.
      */
     constructor(
-        address supportedTokens_
+        address supportedToken_
     ) Ownable(msg.sender)
     {
-        numaToken = supportedTokens_;
+        numaToken = supportedToken_;
     }
 
     function pause() external onlyOwner {
